@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Interview Question Selector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mock Interview Question Selector</h1>
+            <p>Upload your CSV file and practice Meta PM interview questions</p>
+        </header>
+
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📄</div>
+                <h3>Upload CSV File</h3>
+                <p>Drag and drop your CSV file here or click to browse</p>
+                <input type="file" id="fileInput" accept=".csv" hidden>
+                <button id="browseButton" class="browse-btn">Browse Files</button>
+            </div>
+            <div class="file-info" id="fileInfo" style="display: none;">
+                <div class="file-name" id="fileName"></div>
+                <div class="file-stats" id="fileStats"></div>
+            </div>
+        </div>
+
+        <div class="question-section" id="questionSection" style="display: none;">
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <h3>Select Company</h3>
+                    <div class="company-selector">
+                        <input type="text" id="companyInput" placeholder="Type company name or select..." autocomplete="off">
+                        <div class="company-dropdown" id="companyDropdown" style="display: none;"></div>
+                        <div class="selected-company" id="selectedCompany" style="display: none;">
+                            <span class="company-name" id="selectedCompanyName"></span>
+                            <span class="company-count" id="selectedCompanyCount"></span>
+                            <button class="clear-company" id="clearCompany">×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Date Range</h3>
+                    <div class="date-controls">
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="recentQuestionsOnly">
+                            <span class="checkbox-custom"></span>
+                            Recent questions only (last 3 months)
+                        </label>
+                        <div class="date-range" id="dateRange" style="display: none;">
+                            <div class="date-input-group">
+                                <label>From:</label>
+                                <input type="date" id="startDate">
+                            </div>
+                            <div class="date-input-group">
+                                <label>To:</label>
+                                <input type="date" id="endDate">
+                            </div>
+                        </div>
+                        <button id="customDateRange" class="custom-date-btn">Custom Date Range</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Select Question Type</h3>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="questionType" value="product" id="productRadio">
+                            <span class="radio-custom"></span>
+                            Product Sense
+                            <span class="question-count" id="productCount">(0 questions)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="questionType" value="analytical" id="analyticalRadio">
+                            <span class="radio-custom"></span>
+                            Analytical Thinking
+                            <span class="question-count" id="analyticalCount">(0 questions)</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button id="randomizeButton" class="randomize-btn" disabled>Get Random Question</button>
+            </div>
+
+            <div class="question-display" id="questionDisplay" style="display: none;">
+                <div class="question-text" id="questionText"></div>
+                <div class="question-meta" id="questionMeta"></div>
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
